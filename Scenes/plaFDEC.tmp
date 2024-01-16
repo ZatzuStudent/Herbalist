@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://6fdm00l7f80l"]
+
+[ext_resource type="Script" path="res://Scripts/plant1.gd" id="1_dmr8r"]
+[ext_resource type="Texture2D" uid="uid://cqekv0p2dygue" path="res://Arts/1.png" id="2_72y1c"]
+
+[node name="Plant1" type="Node2D"]
+script = ExtResource("1_dmr8r")
+
+[node name="Trunk" type="Sprite2D" parent="."]
+position = Vector2(4, -7)
+scale = Vector2(0.800781, 1.8125)
+texture = ExtResource("2_72y1c")
+
+[node name="Herb1Spawner" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -94.0
+offset_right = 77.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Herb1Spawner"]
+position = Vector2(27, 23)
+scale = Vector2(0.359375, 0.398438)
+texture = ExtResource("2_72y1c")
+
+[node name="Herb1Spawner2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -24.0
+offset_right = -37.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Herb1Spawner2"]
+position = Vector2(27, 23)
+scale = Vector2(0.359375, 0.398438)
+texture = ExtResource("2_72y1c")
+
+[node name="Herb1Spawner3" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 53.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Herb1Spawner3"]
+position = Vector2(27, 23)
+scale = Vector2(0.359375, 0.398438)
+texture = ExtResource("2_72y1c")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Node" type="Node" parent="."]
+
+[connection signal="button_down" from="Herb1Spawner" to="." method="_on_herb_1_spawner_button_down"]
+[connection signal="button_down" from="Herb1Spawner2" to="." method="_on_herb_1_spawner_2_button_down"]
+[connection signal="button_down" from="Herb1Spawner3" to="." method="_on_herb_1_spawner_3_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

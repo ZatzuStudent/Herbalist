@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnio6aq6bgru2"]
+
+[ext_resource type="Script" path="res://Scripts/drier.gd" id="1_cucp7"]
+[ext_resource type="Texture2D" uid="uid://dusl8pv5jt27x" path="res://Arts/9.png" id="1_wsj7i"]
+[ext_resource type="Texture2D" uid="uid://68ja11pjspo3" path="res://Arts/32.png" id="3_ahu05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdad1"]
+size = Vector2(276, 18)
+
+[node name="Drier" type="Area2D" groups=["drier"]]
+script = ExtResource("1_cucp7")
+
+[node name="BasketContents" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+rotation = 3.14159
+scale = Vector2(2.23633, 0.40625)
+texture = ExtResource("3_ahu05")
+
+[node name="BasketEmpty" type="Sprite2D" parent="."]
+scale = Vector2(3.21094, 0.480469)
+texture = ExtResource("1_wsj7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pdad1")

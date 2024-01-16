@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8l8c2gh0yumc"]
+
+[ext_resource type="Script" path="res://Scripts/Bowl.gd" id="1_x0phi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_due81"]
+size = Vector2(183, 71)
+
+[node name="Bowl" type="Area2D" groups=["bowl"]]
+script = ExtResource("1_x0phi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_due81")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 7.0
+offset_top = -136.0
+offset_right = 80.0
+offset_bottom = -45.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

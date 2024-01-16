@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://2jtpyjnrnuxw"]
+
+[ext_resource type="Script" path="res://Scripts/herb_1.gd" id="1_io3sw"]
+[ext_resource type="Texture2D" uid="uid://cqekv0p2dygue" path="res://Arts/1.png" id="2_posqw"]
+[ext_resource type="Texture2D" uid="uid://dq8r1udwlh0bl" path="res://Arts/6.png" id="3_u12s0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgatg"]
+size = Vector2(56, 34)
+
+[node name="Herb1" type="RigidBody2D"]
+mass = 10.0
+gravity_scale = 0.0
+script = ExtResource("1_io3sw")
+
+[node name="fresh" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_posqw")
+
+[node name="Dried" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_u12s0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_xgatg")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -29.0
+offset_top = -21.0
+offset_right = 27.0
+offset_bottom = 13.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_xgatg")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Dry\'Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Dry'Timer" to="." method="_on_dry_timer_timeout"]

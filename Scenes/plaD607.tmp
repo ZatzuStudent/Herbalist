@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://6fdm00l7f80l"]
+
+[ext_resource type="Script" path="res://Scripts/plant1.gd" id="1_dmr8r"]
+[ext_resource type="Texture2D" uid="uid://cqekv0p2dygue" path="res://Arts/1.png" id="2_72y1c"]
+
+[node name="Plant1" type="Node2D"]
+script = ExtResource("1_dmr8r")
+
+[node name="Trunk" type="Sprite2D" parent="."]
+position = Vector2(4, -7)
+scale = Vector2(0.800781, 1.8125)
+texture = ExtResource("2_72y1c")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

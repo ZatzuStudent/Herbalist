@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpf3ol733qp42"]
+
+[ext_resource type="Texture2D" uid="uid://ckri3he05nbuv" path="res://Arts/Potion Sim.png" id="2_lb0l4"]
+[ext_resource type="PackedScene" uid="uid://c8l8c2gh0yumc" path="res://Scenes/bowl.tscn" id="3_fr0me"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="4_obft4"]
+[ext_resource type="PackedScene" uid="uid://2jtpyjnrnuxw" path="res://Scenes/herb_1.tscn" id="5_yryiu"]
+[ext_resource type="PackedScene" uid="uid://6fdm00l7f80l" path="res://Scenes/plant_1.tscn" id="6_k5p7s"]
+[ext_resource type="PackedScene" uid="uid://dnio6aq6bgru2" path="res://Scenes/drier.tscn" id="6_l5qkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn7qn"]
+size = Vector2(2127, 428)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcj75"]
+size = Vector2(357.5, 970.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("4_obft4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_lb0l4")
+
+[node name="Drier" parent="." instance=ExtResource("6_l5qkr")]
+position = Vector2(498, -86)
+
+[node name="Sides" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sides"]
+position = Vector2(-90.5, 634)
+shape = SubResource("RectangleShape2D_tn7qn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sides"]
+position = Vector2(44, -721)
+shape = SubResource("RectangleShape2D_tn7qn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sides"]
+position = Vector2(961, -27)
+shape = SubResource("RectangleShape2D_vcj75")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sides"]
+position = Vector2(-851.25, -21.25)
+shape = SubResource("RectangleShape2D_vcj75")
+
+[node name="Bowl" parent="." instance=ExtResource("3_fr0me")]
+position = Vector2(440, 206)
+
+[node name="Herb1" parent="." instance=ExtResource("5_yryiu")]
+position = Vector2(-481, -224)
+
+[node name="Plant1" parent="." instance=ExtResource("6_k5p7s")]
+position = Vector2(-351, 76)
