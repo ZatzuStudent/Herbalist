@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxfy2o8ydls8f"]
+
+[ext_resource type="Texture2D" uid="uid://d2dgcmihuwun2" path="res://Arts/7.png" id="1_g3tpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksq65"]
+size = Vector2(80, 158)
+
+[node name="Potion_1" type="RigidBody2D" groups=["Potion", "Potion1"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ksq65")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.785398
+texture = ExtResource("1_g3tpy")

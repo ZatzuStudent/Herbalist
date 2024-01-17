@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpf3ol733qp42"]
+[gd_scene load_steps=8 format=3 uid="uid://bpf3ol733qp42"]
 
 [ext_resource type="Texture2D" uid="uid://ckri3he05nbuv" path="res://Arts/Potion Sim.png" id="2_lb0l4"]
 [ext_resource type="PackedScene" uid="uid://c8l8c2gh0yumc" path="res://Scenes/bowl.tscn" id="3_fr0me"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="4_obft4"]
 [ext_resource type="PackedScene" uid="uid://2jtpyjnrnuxw" path="res://Scenes/herb_1.tscn" id="5_yryiu"]
 [ext_resource type="PackedScene" uid="uid://6fdm00l7f80l" path="res://Scenes/plant_1.tscn" id="6_k5p7s"]
 [ext_resource type="PackedScene" uid="uid://dnio6aq6bgru2" path="res://Scenes/drier.tscn" id="6_l5qkr"]
@@ -14,7 +13,6 @@ size = Vector2(2127, 428)
 size = Vector2(357.5, 970.5)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("4_obft4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
