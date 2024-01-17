@@ -14,6 +14,7 @@ func _on_timer_timeout():
 	add_child(herb)
 	herbglobal1 = herb
 
+
 func _on_timer_2_timeout():
 	var herb = herb1.instantiate()
 	herb.position = Vector2 (6,131)

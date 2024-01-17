@@ -20,6 +20,7 @@ func _ready():
 	collision1.disabled = true
 	collision2.disabled = true
 	dried.visible = false
+	isEaten = false
 	fresh.visible = true
 
 func _process(delta):
@@ -30,6 +31,12 @@ func _process(delta):
 		position = get_parent().get_local_mouse_position()
 		linear_velocity = (position-old_pos)/(delta*5)
 		old_pos = position
+		
+	if isEaten == true:
+		GlobalScript.frogeating(position)
+		position = lerp(position, to_local(Vector2(-462,461)), delta * 10)
+		
+		
 
 func _on_dry_timer_timeout():
 	button.visible = true
@@ -52,8 +59,11 @@ func _to_dry():
 		gravity_scale = false
 		button.visible = false
 		collision1.disabled = true
+		await get_tree().create_timer(0.01).timeout
 		global_position = Vector2(497,-80)
 		collision2.disabled = true
+
+var isEaten
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("bowl"):
@@ -63,6 +73,8 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("drier") && selected == true && fresh.visible == true && GlobalScript.hasOneDrier == 0:
 		GlobalScript.drierLoad(1)
 		toDry = true
+	if area.is_in_group("frogEatArea"):
+		isEaten = true
 	else:
 		return
 

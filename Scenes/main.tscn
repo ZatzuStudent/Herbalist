@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpf3ol733qp42"]
+[gd_scene load_steps=10 format=3 uid="uid://bpf3ol733qp42"]
 
 [ext_resource type="Texture2D" uid="uid://ckri3he05nbuv" path="res://Arts/Potion Sim.png" id="2_lb0l4"]
 [ext_resource type="PackedScene" uid="uid://c8l8c2gh0yumc" path="res://Scenes/bowl.tscn" id="3_fr0me"]
 [ext_resource type="PackedScene" uid="uid://2jtpyjnrnuxw" path="res://Scenes/herb_1.tscn" id="5_yryiu"]
 [ext_resource type="PackedScene" uid="uid://6fdm00l7f80l" path="res://Scenes/plant_1.tscn" id="6_k5p7s"]
 [ext_resource type="PackedScene" uid="uid://dnio6aq6bgru2" path="res://Scenes/drier.tscn" id="6_l5qkr"]
+[ext_resource type="PackedScene" uid="uid://nv65cy5lqggc" path="res://Scenes/frog.tscn" id="6_sjnxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tn7qn"]
 size = Vector2(2127, 428)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcj75"]
 size = Vector2(357.5, 970.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25mfx"]
+size = Vector2(1428, 93)
 
 [node name="Main" type="Node2D"]
 
@@ -44,3 +48,12 @@ position = Vector2(-367, -272)
 
 [node name="Plant1" parent="." instance=ExtResource("6_k5p7s")]
 position = Vector2(-351, 76)
+
+[node name="Frog" parent="." instance=ExtResource("6_sjnxq")]
+position = Vector2(-462, 461)
+
+[node name="Area2D" type="Area2D" parent="." groups=["frogEatArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(59, 496.5)
+shape = SubResource("RectangleShape2D_25mfx")
