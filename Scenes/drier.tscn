@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnio6aq6bgru2"]
+[gd_scene load_steps=7 format=3 uid="uid://dnio6aq6bgru2"]
 
 [ext_resource type="Script" path="res://Scripts/drier.gd" id="1_cucp7"]
 [ext_resource type="Texture2D" uid="uid://dusl8pv5jt27x" path="res://Arts/9.png" id="1_wsj7i"]
+[ext_resource type="Texture2D" uid="uid://cfy8il8svvxut" path="res://Arts/8.png" id="2_hgb5k"]
 [ext_resource type="Texture2D" uid="uid://68ja11pjspo3" path="res://Arts/32.png" id="3_ahu05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdad1"]
-size = Vector2(276, 18)
+size = Vector2(308, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfjud"]
+radius = 1.0
 
 [node name="Drier" type="Area2D" groups=["drier"]]
 script = ExtResource("1_cucp7")
+
+[node name="BasketContentsDried" type="Sprite2D" parent="."]
+position = Vector2(-5.24538e-07, -20.5)
+rotation = 3.14159
+scale = Vector2(2.96875, 0.613281)
+texture = ExtResource("2_hgb5k")
 
 [node name="BasketContents" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
@@ -21,4 +31,18 @@ scale = Vector2(3.21094, 0.480469)
 texture = ExtResource("1_wsj7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_pdad1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HasHerb2D" type="Area2D" parent="."]
+
+[node name="HasHerb" type="CollisionShape2D" parent="HasHerb2D"]
+shape = SubResource("CircleShape2D_tfjud")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_exited" from="HasHerb2D" to="." method="_on_has_herb_2d_area_exited"]

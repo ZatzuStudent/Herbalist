@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgatg"]
 size = Vector2(56, 34)
 
-[node name="Herb1" type="RigidBody2D"]
+[node name="Herb1" type="RigidBody2D" groups=["herb1"]]
 mass = 10.0
 gravity_scale = 0.0
 script = ExtResource("1_io3sw")
@@ -30,7 +30,7 @@ offset_top = -21.0
 offset_right = 27.0
 offset_bottom = 13.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["herb1"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -4)
@@ -45,5 +45,4 @@ one_shot = true
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Dry'Timer" to="." method="_on_dry_timer_timeout"]
