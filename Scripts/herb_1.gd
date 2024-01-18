@@ -32,9 +32,10 @@ func _process(delta):
 		linear_velocity = (position-old_pos)/(delta*5)
 		old_pos = position
 		
-	if isEaten == true:
-		GlobalScript.frogeating(position)
-		position = lerp(position, to_local(Vector2(-462,461)), delta * 10)
+	if isEaten == true && selected == false:
+		GlobalScript.frogeating(global_position)
+		
+		position = lerp(position, get_parent().to_local(Vector2(-462,461)), delta * 10)
 		
 		
 
@@ -75,7 +76,11 @@ func _on_area_2d_area_entered(area):
 		toDry = true
 	if area.is_in_group("frogEatArea"):
 		isEaten = true
+	if area.is_in_group("eaternByFrog"):
+		queue_free()
 	else:
 		return
 
-
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("frogEatArea"):
+		isEaten = false

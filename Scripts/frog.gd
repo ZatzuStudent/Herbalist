@@ -4,7 +4,8 @@ extends Node2D
 
 func _ready():
 	tongue.points[0] = Vector2.ZERO
-	tongue.points[1] = Vector2.ZERO
+	tongue.points[1] = Vector2(497,-80)
 	
 func _process(_delta):
-	tongue.points[1] = to_local(GlobalScript.herbfallen)
+	if Input.is_action_pressed("mouse") == false:
+		tongue.points[1] = to_local(GlobalScript.herbfallen)

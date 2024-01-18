@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://nv65cy5lqggc"]
+[gd_scene load_steps=6 format=3 uid="uid://nv65cy5lqggc"]
 
 [ext_resource type="Script" path="res://Scripts/frog.gd" id="1_bk4ip"]
 [ext_resource type="Texture2D" uid="uid://cnrv01laluslo" path="res://Arts/icon.svg" id="1_plalr"]
@@ -8,14 +8,30 @@ max_value = 5.0
 _data = [Vector2(0.10355, 5.136), 0.0, -0.736832, 0, 0, Vector2(0.967456, 1.89221), -3.04556, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdaho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3eno"]
+size = Vector2(2522, 134)
+
 [node name="Frog" type="Node2D"]
 script = ExtResource("1_bk4ip")
+
+[node name="Tongue" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 172, -39)
+width_curve = SubResource("Curve_oxh2c")
+default_color = Color(0.556863, 0, 0.156863, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.6875, 1.65625)
 texture = ExtResource("1_plalr")
 
-[node name="Tongue" type="Line2D" parent="."]
-points = PackedVector2Array(1, 34, 172, -39)
-width_curve = SubResource("Curve_oxh2c")
-default_color = Color(0.556863, 0, 0.156863, 1)
+[node name="Area2D" type="Area2D" parent="." groups=["eaternByFrog"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_sdaho")
+
+[node name="EatingArea2D" type="Area2D" parent="." groups=["frogEatArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea2D"]
+position = Vector2(701, 57)
+shape = SubResource("RectangleShape2D_v3eno")
